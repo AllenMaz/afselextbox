@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>afselectbox</title>
+    <link rel="stylesheet" href="css/skin-default.css">
+    <link rel="stylesheet" href="css/afselectbox.css">
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="dist/afselextbox.js"></script>
+    <style>
+        #afselextbox,
+        #afselextbox1,
+        #afselextbox2{
+            width: 200px;
+            height: 24px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="afselextbox" class="asdf"></div>
+    <div id="afselextbox1" class="asdf"></div>
+    <div id="afselextbox2" class="asdf"></div>
+
+    <script>
+        var data =[{
+            code:'1111009',
+            name:'人民出版社',
+            desc:'描述'
+
+        },{
+            code:'344555',
+            name:'黑猫警长',
+            desc:'描三分到手的述'
+
+        },{
+            code:'1111009',
+            name:'人民出版社',
+            desc:'描述'
+
+        },{
+            code:'344555',
+            name:'黑猫警长',
+            desc:'描三分到手的述'
+
+        }];
+
+        $("#afselextbox").initafselectbox({
+            defaultoption:{
+                key:'',
+                value:'选择数据'
+            },
+            width:400,
+            keyfield:'code', //key字段
+            valuefield:['name','desc'], //value字段
+            searchfield:['name','desc'],
+            select:function (key,value) {
+                alert(key+":"+value);
+            }
+        });
+
+        $("#afselextbox").renderafselectbox(data,function (key,value) {
+            alert(key+":"+value);
+
+        });
+
+        $("#afselextbox1").initafselectbox({
+            defaultoption:{
+                key:'',
+                value:'select data'
+            },
+            width:400,
+            keyfield:'code', //key字段
+            valuefield:['name','desc'], //value字段
+            searchfield:['name','desc'],
+            select:function (key,value) {
+
+            },
+            data:data
+        });
+        $("#afselextbox2").initafselectbox({
+            defaultoption:{
+                key:'',
+                value:'select data'
+            },
+            keyfield:'code', //key字段
+            valuefield:'name', //value字段
+            searchfield:['code','name'],
+            data:[{
+                code:0,
+                name:'厦门'
+            },{
+                code:1,
+                name:'龙岩'
+            },{
+                code:2,
+                name:'北京'
+            },{
+                code:3,
+                name:'上海'
+            },{
+                code:0,
+                name:'厦门'
+            },{
+                code:1,
+                name:'龙岩'
+            },{
+                code:2,
+                name:'北京'
+            },{
+                code:3,
+                name:'上海'
+            },{
+                code:0,
+                name:'厦门'
+            },{
+                code:1,
+                name:'龙岩'
+            },{
+                code:2,
+                name:'北京'
+            },{
+                code:3,
+                name:'上海'
+            }]
+        });
+    </script>
+</body>
+</html>

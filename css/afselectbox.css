@@ -1,0 +1,90 @@
+.afselectbox{
+    position:relative;
+}
+/*下拉选*/
+.afselectbox .afselectboxvalue{display:none;}
+.afselectbox .afselectboxlist{
+    position: absolute;
+    background-color: white;
+    width:auto;
+    left: 0px;
+    top: 32px;
+    z-index: 999;
+    border: 1px solid #eee;
+    box-shadow: 0px 0px 3px #03A9F4;
+    border-radius: 0px 0px 5px 5px;
+    overflow: hidden;
+}
+.afselectboxshow{
+    display: block;
+}
+.afselectboxhide{
+   display: none;
+}
+.afselectboxlist-inner{
+    width: auto;
+}
+.afselectbox .afselectboxlist .afselectboxgridoption{
+    height: 34px;
+    text-align: left;
+    line-height: 34px;
+    cursor:pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding:0px 10px;
+}
+.afselectbox .afselectboxlist .afselectboxgridoption:hover{
+    background-color:#eee;
+}
+.afselectboxgridoption .afselectboxoption{
+    float: left;
+    width:33.3333%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.afselectbox .afselectboxlist .afselectboxgridoption.hideoption{
+    display: none;
+}
+.afselectboxoptionsearch{
+    background-color: white;
+    width:90%;
+}
+
+.afselectboxoptionsearch:before,
+.afselectboxoptionsearch:after{
+    display: table;
+    content: " ";
+}
+
+.afselectboxoptionsearch:after{
+    clear:both;
+}
+.afselectboxoptionsearch input[type=text]{
+    float: left;
+    width: 70%;
+    height: 28px;
+    border: 1px solid #eee;
+    padding: 0px 2.5%;
+    border-radius: 3px;
+    outline: none;
+}
+.afselectboxoptionsearch .afselectboxsearchbtn{
+    float: right;
+    width: 20%;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    background-color: #2196F3;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+}
+.afselectbox .afselectoptionlist{
+    max-height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
