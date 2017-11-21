@@ -1,8 +1,15 @@
 .afselectbox{
     position:relative;
+    
 }
 /*下拉选*/
 .afselectbox .afselectboxvalue{display:none;}
+.afselectbox .afselectboxvalue{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+}
 .afselectbox .afselectboxlist{
     position: absolute;
     background-color: white;
