@@ -12,7 +12,6 @@
                 defaultoption.value == undefined || defaultoption.value ==null){
                 defaultoption = {key:'',value:'select data'};
             }
-
             var height = config.height?config.height:'34'; //高度,默认高度34px
             var width = config.width?config.width:'auto'; //宽度，默认auto
             var selectevent = config.select; //选择事件
@@ -42,7 +41,9 @@
                 afselexthtml += '<span class="afselectboxtext">'+defaultoption.value+'</span>';
                 afselexthtml += '<div class="afselectboxlist afselectboxhide">';
                 afselexthtml += '<div class="afselectboxlist-inner">';
-                afselexthtml += '<div class="afselectboxoptionsearch">';
+
+                var searchshowclss = searchfield ==''?'afselectboxhide':'';
+                afselexthtml += '<div class="afselectboxoptionsearch '+searchshowclss+'">';
                 afselexthtml += '<input type="text" placeholder="输入关键词">';
                 afselexthtml += '<div class="afselectboxsearchbtn">清空</div>';
                 afselexthtml += '</div>';
@@ -162,31 +163,34 @@
         //过滤数据
         filterafselectbox:function (searchvalue) {
             var renderdom = this;
-            var searchfields = $(renderdom).attr("data-searchfield").split(',');
+            var searchfield = $(renderdom).attr("data-searchfield");
+            if(searchfield){
+                var searchfields = $(renderdom).attr("data-searchfield").split(',');
+                $(renderdom).find(".afselectoptionlist .afselectboxgridoption").each(function () {
+                    var optioncolumns = $(this).find(".afselectboxoption");
+                    var showoption = false;
 
-            $(renderdom).find(".afselectoptionlist .afselectboxgridoption").each(function () {
-                var optioncolumns = $(this).find(".afselectboxoption");
-                var showoption = false;
-
-                for(var i=0;i<optioncolumns.length;i++){
-                    var optionattr = $(optioncolumns[i]).attr("data-attr");
-                    var optionvalue = $(optioncolumns[i]).html();
-                    for(var j=0;j<searchfields.length;j++){
-                        if(searchfields[j] == optionattr && optionvalue.indexOf(searchvalue) >-1)
-                        {
-                            showoption = true;
-                            break;
+                    for(var i=0;i<optioncolumns.length;i++){
+                        var optionattr = $(optioncolumns[i]).attr("data-attr");
+                        var optionvalue = $(optioncolumns[i]).html();
+                        for(var j=0;j<searchfields.length;j++){
+                            if(searchfields[j] == optionattr && optionvalue.indexOf(searchvalue) >-1)
+                            {
+                                showoption = true;
+                                break;
+                            }
                         }
+                        if(showoption)
+                            break;
                     }
                     if(showoption)
-                        break;
-                }
-                if(showoption)
-                    $(this).removeClass("hideoption");
-                else
-                    $(this).addClass("hideoption")
+                        $(this).removeClass("hideoption");
+                    else
+                        $(this).addClass("hideoption")
 
-            });
+                });
+            }
+
         }
 
     });
