@@ -76,7 +76,7 @@
                 var listwidth = renderdomWidth-6;
                 if(width != 'auto')
                     listwidth = width;
-                var listinnerwidth = listwidth+20;
+                var listinnerwidth = listwidth;
                 $(renderdom).find(".afselectboxlist").width(listwidth);
                 $(renderdom).find(".afselectboxlist-inner").width(listinnerwidth);
                 $(renderdom).find(".afselectboxoptionsearch").width(listwidth);
